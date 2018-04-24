@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import Unsplash, { toJson } from 'unsplash-js';
 
 const unsplash = new Unsplash({
@@ -31,9 +32,6 @@ export function getCards(page) {
 
 export function setCurrentCard(currentIndex) {
   return (dispatch) => {
-
-
-
     dispatch({
       type: 'CHANGE_CURRENT_CARD_INDEX',
       currentIndex,
@@ -47,19 +45,30 @@ export function changeCurrentCard(dir, currentIndex, cardsLength) {
       if (currentIndex === 0) {
         currentIndex = cardsLength - 1;
       } else {
-        currentIndex = currentIndex - 1;
+        currentIndex -= 1;
       }
     }
     if (dir === 'next') {
       if (currentIndex === cardsLength - 1) {
         currentIndex = 0;
       } else {
-        currentIndex = currentIndex + 1;
+        currentIndex += 1;
       }
     }
     dispatch({
       type: 'CHANGE_CURRENT_CARD_INDEX',
       currentIndex,
+    });
+  };
+}
+
+
+export function setCurrentPage(currentPage) {
+  return (dispatch) => {
+    currentPage += 1,
+    dispatch({
+      type: 'SET_CURRENT_PAGE',
+      currentPage,
     });
   };
 }

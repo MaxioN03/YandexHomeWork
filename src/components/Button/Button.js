@@ -5,7 +5,7 @@ import { changeCurrentCard } from '../../reducers/feed/action';
 
 class Button extends React.Component {
   clickOverlayHandler() {
-    this.props.changeCurrentCard(this.props.dir,this.props.currentIndex, this.props.cards.length);
+    this.props.changeCurrentCard(this.props.dir, this.props.currentIndex, this.props.cards.length);
   }
 
   render() {

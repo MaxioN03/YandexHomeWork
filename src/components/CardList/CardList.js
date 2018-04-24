@@ -1,27 +1,33 @@
-import React from "react";
-import Spinner from "../Spinner/Spinner.js";
-import Card from "../Card/Card.js";
-import { connect } from "react-redux";
-import { getCards } from "../../reducers/feed/action";
+import React from 'react';
+import Spinner from '../Spinner/Spinner.js';
+import Card from '../Card/Card.js';
+import { connect } from 'react-redux';
+import { getCards } from '../../reducers/feed/action';
+
+let time = new Date().getTime();
 
 class CardList extends React.Component {
   componentWillMount() {
-    this.props.getCards(1);
+    this.props.getCards(this.props.currentPage);
   }
 
+  componentDidUpdate() {
+    const currentTime = new Date().getTime();
+    if (currentTime - time > 1000) {
+      time = currentTime;
+      this.props.getCards(this.props.currentPage);
+    }
+  }
 
   render() {
-    if (this.props.loading) {
-      return (
-        <Spinner/>
-      );
-    }
-
     return (
+      <div>
       <div className="cardList">
         {
-          this.props.cards.map((item, i) => <Card key={item.id} data={item} index={i}/>)
+          this.props.cards.map((item, i) => <Card key={item.id+i} data={item} index={i} />)
         }
+      </div>
+        <Spinner />
       </div>
     );
   }
@@ -30,7 +36,7 @@ class CardList extends React.Component {
 export default connect(state => ({
   cards: state.feed.cards,
   loading: state.feed.loading,
-
+  currentPage: state.feed.currentPage,
 }), {
   getCards,
 })(CardList);

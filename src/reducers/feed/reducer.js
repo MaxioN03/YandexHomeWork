@@ -24,7 +24,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        cards: action.cards,
+        cards: state.cards.concat(action.cards),
         currentPage: state.currentPage,
       };
     }
@@ -38,6 +38,12 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         currentIndex: action.currentIndex,
+      };
+    }
+    case 'SET_CURRENT_PAGE': {
+      return {
+        ...state,
+        currentPage: action.currentPage,
       };
     }
     default: {
