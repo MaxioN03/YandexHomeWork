@@ -1,15 +1,15 @@
-import React from "react";
-import CardList from "../CardList/CardList";
-import { connect } from "react-redux";
-import ShowModeFeed from "../ShowModeFeed/ShowModeFeed";
+import React from 'react';
+import CardList from '../CardList/CardList';
+import { connect } from 'react-redux';
+import ShowModeFeed from '../ShowModeFeed/ShowModeFeed';
 
 class Feed extends React.Component {
   render() {
-    if (this.props.mode === "gallery") {
+    if (this.props.mode === 'gallery') {
       return (
         <CardList />
       );
-    } else if (this.props.mode === "show") {
+    } else if (this.props.mode === 'show') {
       return (
         <ShowModeFeed />
       );

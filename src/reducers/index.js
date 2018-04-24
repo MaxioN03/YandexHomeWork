@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import feed from "./feed/reducer";
+import { combineReducers } from 'redux';
+import feed from './feed/reducer';
 
 export default combineReducers({
   feed,

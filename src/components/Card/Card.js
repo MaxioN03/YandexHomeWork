@@ -1,11 +1,11 @@
-import { changeFeedMode, setCurrentCard } from "../../reducers/feed/action";
-import { connect } from "react-redux";
+import { changeFeedMode, setCurrentCard } from '../../reducers/feed/action';
+import { connect } from 'react-redux';
 
-const React = require("react");
+const React = require('react');
 
 class Card extends React.Component {
   clickHandler() {
-    this.props.changeFeedMode("show");
+    this.props.changeFeedMode('show');
     this.props.setCurrentCard(this.props.index);
   }
 

@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import { getCards, setCurrentPage } from "../../reducers/feed/action";
-import Feed from "../Feed/Feed";
-import "./Infinite.css";
+import React from 'react';
+import { connect } from 'react-redux';
+import { getCards, setCurrentPage } from '../../reducers/feed/action';
+import Feed from '../Feed/Feed';
+import './Infinite.css';
 
 class Infinite extends React.Component {
   constructor(props) {
@@ -12,11 +12,11 @@ class Infinite extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener("scroll", this.onScroll, { passive: true });
+    document.addEventListener('scroll', this.onScroll, { passive: true });
   }
 
   componentWillUnmount() {
-    document.removeEventListener("scroll", this.onScroll);
+    document.removeEventListener('scroll', this.onScroll);
   }
 
   componentDidUpdate() {

@@ -1,13 +1,13 @@
-import React from "react";
-import CardList from "../CardList/CardList";
-import { connect } from "react-redux";
-import "./ShowModeFeed.css";
-import { changeFeedMode } from "../../reducers/feed/action";
-import Button from "../Button/Button";
+import React from 'react';
+import CardList from '../CardList/CardList';
+import { connect } from 'react-redux';
+import './ShowModeFeed.css';
+import { changeFeedMode } from '../../reducers/feed/action';
+import Button from '../Button/Button';
 
 class ShowModeFeed extends React.Component {
   clickOverlayHandler() {
-    this.props.changeFeedMode("gallery");
+    this.props.changeFeedMode('gallery');
   }
 
   render() {
@@ -19,7 +19,7 @@ class ShowModeFeed extends React.Component {
           <div className="picture-container">
             <img
               className="contain"
-              src={this.props.cards[this.props.currentIndex].urls.regular}
+              src={this.props.cards[this.props.currentIndex].urls && this.props.cards[this.props.currentIndex].urls.regular}
               style={{
                     backgroundColor: this.props.cards.color,
                   }}
